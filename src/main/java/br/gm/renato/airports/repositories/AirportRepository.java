@@ -18,3 +18,4 @@ public interface AirportRepository extends JpaRepository<Airport, Long> {
     
 }
     
+    
