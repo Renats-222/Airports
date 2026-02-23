@@ -1,5 +1,6 @@
 package br.gm.renato.airports.Controllers;
 
+import br.gm.renato.airports.DTO.AirportMinDTO;
 import br.gm.renato.airports.Service.AirportService;
 import br.gm.renato.airports.entities.Airport;
 import java.util.List;
@@ -38,5 +39,20 @@ public class AirportController {
         }
 
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/country/{countryName}")
+    public ResponseEntity<List<AirportMinDTO>> findByCountryIgnoreCase(
+            @PathVariable String countryName) {
+
+        List<AirportMinDTO> result
+                = airportService.findByCountry(countryName);
+
+        if (result.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+
+            return ResponseEntity.ok(result);
+        }
     }
 }
