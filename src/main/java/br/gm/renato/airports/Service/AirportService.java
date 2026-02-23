@@ -5,7 +5,9 @@
 package br.gm.renato.airports.Service;
 
 import br.gm.renato.airports.DTO.AirportMinDTO;
+import br.gm.renato.airports.DTO.AirportNearMeDTO;
 import br.gm.renato.airports.entities.Airport;
+import br.gm.renato.airports.projections.AirportNearMeProjection;
 import br.gm.renato.airports.repositories.AirportRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,24 @@ public class AirportService {
         List<AirportMinDTO> resultDTO
                 = resultAirport.stream()
                         .map(x -> new AirportMinDTO(x))
+                        .toList();
+
+        return resultDTO;
+    }
+
+    public Airport findByIataCode(String iataCode) {
+        Airport result = airportRepository.findByIataCode(iataCode);
+        return result;
+    }
+
+    public List<AirportNearMeDTO> findNearMe(double latitude, double longitude) {
+
+        List<AirportNearMeProjection> resultAirport
+                = airportRepository.findNearMe(latitude, longitude);
+
+        List<AirportNearMeDTO> resultDTO
+                = resultAirport.stream()
+                        .map(x -> new AirportNearMeDTO(x))
                         .toList();
 
         return resultDTO;
