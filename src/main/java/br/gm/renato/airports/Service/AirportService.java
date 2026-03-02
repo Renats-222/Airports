@@ -54,6 +54,7 @@ public class AirportService {
         return result;
     }
 
+<<<<<<< HEAD
     public List<AirportNearMeDTO> findNearMe(double latitude, double longitude) {
 
         List<AirportNearMeProjection> resultAirport
@@ -67,4 +68,6 @@ public class AirportService {
         return resultDTO;
     }
 
+=======
+>>>>>>> 8234fa214567d252601273d0e7b5971a70a7c747
 }

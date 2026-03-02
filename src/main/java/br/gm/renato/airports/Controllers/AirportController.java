@@ -69,6 +69,7 @@ public class AirportController {
             return ResponseEntity.ok(result);
         }
     }
+<<<<<<< HEAD
     @GetMapping("/nearme")
     public ResponseEntity<List<AirportNearMeDTO>> findNearMe(
         @RequestParam double latitude,
@@ -82,6 +83,8 @@ public class AirportController {
     }
 
     return ResponseEntity.ok(result);
+=======
+>>>>>>> 8234fa214567d252601273d0e7b5971a70a7c747
 }
 }
 
